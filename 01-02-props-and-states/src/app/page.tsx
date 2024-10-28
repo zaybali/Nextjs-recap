@@ -1,6 +1,6 @@
 "use client"
-import Image from "next/image";
 import HelloWorld from "./helloworld";
+import CustomCounter from "./customCounter";
 
 export default function Home() {
   const signup = () =>{
@@ -37,6 +37,8 @@ export default function Home() {
         btnLabel="Forget Password?"
         handerFunc={forgetPassword}
       />
+
+      <CustomCounter heading="Enter Number and then click add or subtract to modify shown value" initCount={0} />
     </>
   );
 }
