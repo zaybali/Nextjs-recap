@@ -7,7 +7,7 @@ type CustomCounterType = {
   initCount: number
 }
 
-export default function CustomCounter({ heading, initCount }: CustomCounterType) {
+export default function Counter({ heading, initCount }: CustomCounterType) {
   console.log(heading, initCount);
   const [count, setCount] = useState(initCount);
   const [inputVal, setInputVal] = useState(1);

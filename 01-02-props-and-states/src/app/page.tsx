@@ -1,6 +1,6 @@
 "use client"
 import HelloWorld from "./helloworld";
-import CustomCounter from "./customCounter";
+import Counter from "./counter";
 
 export default function Home() {
   const signup = () =>{
@@ -38,7 +38,7 @@ export default function Home() {
         handerFunc={forgetPassword}
       />
 
-      <CustomCounter heading="Enter Number and then click add or subtract to modify shown value" initCount={0} />
+      <Counter heading="Enter Number and then click add or subtract to modify shown value" initCount={0} />
     </>
   );
 }
