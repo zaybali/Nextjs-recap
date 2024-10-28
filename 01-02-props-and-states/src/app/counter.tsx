@@ -8,11 +8,11 @@ type CustomCounterType = {
 }
 
 export default function Counter({ heading, initCount }: CustomCounterType) {
-  console.log(heading, initCount);
   const [count, setCount] = useState(initCount);
   const [inputVal, setInputVal] = useState(1);
 
   const handleCount = (e: any) => {
+    console.log(e);
     setInputVal(e.target.value);
   }
 
@@ -21,7 +21,7 @@ export default function Counter({ heading, initCount }: CustomCounterType) {
   }
 
   const subtract = () => {
-    setCount(count - inputVal);
+    count > 0 && setCount(count - inputVal);
   }
 
   const reset = () => {
