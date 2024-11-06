@@ -20,8 +20,13 @@ export default function AllProducts({ productsList }:productListType) {
         </Table.Row>
       </Table.Header>
 
-      {}
-      <Product />
+      {
+        productsList.map(({id, name, price, category}, i)=>{
+          return(
+            <Product key={id+name} id={i+1} name={name} price={price} category={category}/>
+          )
+        })
+      }
 
     </Table.Root>
   )

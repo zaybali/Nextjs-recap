@@ -1,15 +1,21 @@
+import { productItemType } from '@/app/productType'
 import { Table } from '@chakra-ui/react'
 import React from 'react'
 
-export default function Product() {
+export default function Product({
+  id,
+  name,
+  price,
+  category
+}: productItemType) {
   return (
     <>
       <Table.Body>
         <Table.Row>
-          <Table.ColumnHeader>1</Table.ColumnHeader>
-          <Table.ColumnHeader>iPhone</Table.ColumnHeader>
-          <Table.ColumnHeader>999</Table.ColumnHeader>
-          <Table.ColumnHeader>Mobiles</Table.ColumnHeader>
+          <Table.ColumnHeader>{id}</Table.ColumnHeader>
+          <Table.ColumnHeader>{name}</Table.ColumnHeader>
+          <Table.ColumnHeader>{price}</Table.ColumnHeader>
+          <Table.ColumnHeader>{category}</Table.ColumnHeader>
         </Table.Row>
       </Table.Body>
 
