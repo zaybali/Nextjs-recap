@@ -4,7 +4,7 @@ import AllProducts from "@/components/allproducts";
 import Categories from "@/components/categories";
 import MyInfo from "@/components/myinfo";
 import { Flex } from "@chakra-ui/react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { productItemType } from "./productType";
 
 
@@ -73,15 +73,27 @@ const products: productItemType[] = [
 
 
 export default function Home() {
-  const [categList, setCategList] = useState(['Sort By Price','All','Clothes', 'Mobiles', 'Cars', 'Laptops', 'Gadgets']);
+  const [categList, setCategList] = useState(['Sort By Price', 'All', 'Clothes', 'Mobiles', 'Cars', 'Laptops', 'Gadgets']);
   const [selectCat, setSelectCat] = useState("All");
   console.log(selectCat);
+  const [filteredProducts, setFilteredProducts] = useState(products);
+
+
+  useEffect(() => {
+    let shortLstPrds = products.filter(({ category }) => (
+      selectCat === 'All' || category === selectCat
+    ))
+    console.log(shortLstPrds, "short listed prds");
+    setFilteredProducts(shortLstPrds);
+  }, [selectCat])
+
+
   return (
     <>
       <Flex direction="column" align="center" minHeight="100vh" gap={0}>
         <MyInfo />
-        <Categories categories={categList} setSelectCat={setSelectCat}  />
-        <AllProducts productsList={products}/>
+        <Categories categories={categList} setSelectCat={setSelectCat} />
+        <AllProducts productsList={filteredProducts} />
       </Flex>
     </>
   );

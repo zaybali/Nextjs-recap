@@ -7,7 +7,7 @@ type productListType = {
   productsList: productItemType[]
 }
 
-export default function AllProducts({ productsList }:productListType) {
+export default function AllProducts({ productsList }: productListType) {
   console.log(productsList);
   return (
     <Table.Root size="lg" width="50%">
@@ -21,11 +21,16 @@ export default function AllProducts({ productsList }:productListType) {
       </Table.Header>
 
       {
-        productsList.map(({id, name, price, category}, i)=>{
-          return(
-            <Product key={id+name} id={i+1} name={name} price={price} category={category}/>
-          )
-        })
+        productsList.map(({ id, name, price, category }, i) => (
+          <Product
+            key={id + name}
+            id={i + 1}
+            name={name}
+            price={price}
+            category={category}
+          />
+        )
+        )
       }
 
     </Table.Root>
