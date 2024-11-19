@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 // React Hook Form to imports
 import { z } from "zod";
@@ -31,7 +31,7 @@ const formSchema = z.object({
 const users = [
   {
     email: "zaibali@gmail.com",
-    password: "zayb123",
+    password: "Zayb1234.",
     userName: "Zaib Ali",
     hobbies: ["swimming", "football"],
     posts: [
@@ -86,6 +86,8 @@ type loginType = {
 }
 
 export default function Login({ changeAuthStatus, setUser }: loginType) {
+
+  const [error, setError] = useState('');
   // 1. Define your form
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -99,6 +101,23 @@ export default function Login({ changeAuthStatus, setUser }: loginType) {
   function onSubmit(values: z.infer<typeof formSchema>) {
     // Do something with the form values.
     console.log(values);
+    const { email, password } = values;
+
+    let [userFound] = users.filter((user) => (
+      user.email === email && user.password === password
+    ))
+    console.log(userFound, "userFound")
+
+    if (userFound) {
+      changeAuthStatus(true);
+      setUser(userFound);
+    }
+    else {
+      setError('Invalid Credentials');
+      setTimeout(() => {
+        setError('')
+      }, 3000);
+    }
   }
 
   return (
@@ -144,6 +163,8 @@ export default function Login({ changeAuthStatus, setUser }: loginType) {
                 )}
               />
               <Button type="submit">Submit</Button>
+              {error && <p className='className="mt-4 p-4  text-rose-600 rounded transition-opacity duration-300'>{error}</p>
+              }
             </form>
           </Form>
         </div>

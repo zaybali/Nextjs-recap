@@ -12,7 +12,9 @@ export default function Home() {
     <>
       {
         isAuthenticated ? (
-          <UserTimeline />
+          <UserTimeline
+            userData={user}
+          />
         ) : (
           <Login changeAuthStatus={setIsAuthenticated} setUser={setUser} />
         )

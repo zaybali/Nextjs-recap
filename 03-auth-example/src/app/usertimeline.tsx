@@ -1,6 +1,11 @@
 import React from 'react'
 
-export default function UserTimeline() {
+type userDataType = {
+  userData: (UserType | null)
+}
+
+export default function UserTimeline({ userData }: userDataType) {
+  console.log(userData)
   return (
     <div>userTimeline</div>
   )
