@@ -43,6 +43,58 @@ export default function Login() {
     console.log(values);
   }
 
+  // Dummy API
+  const users = [
+    {
+      email: "zaibali@gmail.com",
+      password: "zayb123",
+      userName: "Zaib Ali",
+      hobbies: ["swimming", "football"],
+      posts: [
+        {
+          "content": "Captured some stunning sunset photos during my trip to the mountains. Nature is incredible!",
+          "likes": 25
+        },
+        {
+          "content": "Just returned from an amazing vacation in Japan! The culture and food were unforgettable.",
+          "likes": 18
+        }
+      ]
+    },
+    {
+      "email": "zayb@live.com",
+      "password": "zayb123",
+      "userName": "Zayb Aly",
+      "hobbies": ["reading", "cycling"],
+      "posts": [
+        {
+          "content": "Just finished reading an amazing book! Can't wait to share my thoughts.",
+          "likes": 15
+        },
+        {
+          "content": "Had a great bike ride through the park today. The weather was perfect!",
+          "likes": 8
+        }
+      ]
+    },
+    {
+      "email": "Zaybali@yahoo.com",
+      "password": "zayb123",
+      "userName": "Zayb Ali",
+      "hobbies": ["gaming", "cooking"],
+      "posts": [
+        {
+          "content": "Just beat the final boss in my favorite game! What a challenge!",
+          "likes": 20
+        },
+        {
+          "content": "Tried a new recipe for dinner tonight. It turned out amazing!",
+          "likes": 12
+        }
+      ]
+    }
+  ]
+
   return (
     <>
       <div className="flex justify-center items-center min-h-screen">
