@@ -124,7 +124,7 @@ export default function Login({ changeAuthStatus, setUser }: loginType) {
     <>
       <div className="flex justify-center items-center min-h-screen">
         <div className="max-w-md w-full p-6 border rounded-lg shadow-md">
-          <h2 className="text-center mb-4">Login to continue</h2>
+          <h2 className="text-xl font-bold  text-center mb-4">Login to continue</h2>
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
               <FormField
