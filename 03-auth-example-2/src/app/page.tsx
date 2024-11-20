@@ -1,16 +1,22 @@
-import Image from "next/image";
+"use client";
+
 import { useState } from "react";
+import Usertimeline from "./usertimeline";
+import Login from "./login";
 
 export default function Home() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState<userType | null>(null);
   return (
     <>
       {
         isAuthenticated ? (
-          <UserTimeline />
+          <Usertimeline userData={user} />
         ) : (
-          <Login />
+          <Login
+            changeAuthStatus={setIsAuthenticated}
+            setUser={setUser}
+          />
         )
       }
     </>
