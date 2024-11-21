@@ -9,7 +9,7 @@ export default function Home() {
     'All', 'Mobiles', 'Laptops', 'Cars', 'Clothes', 'Gadgets'
   ]);
   const [selectCat, setSelectCat] = useState('All')
-
+  console.log(selectCat, 'selectCat')
   return (
     <>
       <div style={{ display: "flex", justifyContent: "center", alignItems: "center", flexDirection: "column", height: '90vh' }}>
