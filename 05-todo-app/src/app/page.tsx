@@ -1,5 +1,6 @@
 "use client"
 import TodoInput from "@/components/todo-input";
+import TodoList from "@/components/todo-list";
 import { useEffect, useState } from "react";
 
 export default function Home() {
@@ -12,10 +13,13 @@ export default function Home() {
   useEffect(() => {
     console.log(todos);
   }, [todos])
+
   return (
     <>
       <h1>React Todo</h1>
       <TodoInput addNewTodo={addNewTodo} />
+
+      <TodoList todos={todos} />
     </>
   );
 }
