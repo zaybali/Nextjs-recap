@@ -19,7 +19,7 @@ export default function Home() {
       <h1>React Todo</h1>
       <TodoInput addNewTodo={addNewTodo} />
 
-      <TodoList todos={todos} />
+      <TodoList todos={todos} setTodos={setTodos} />
     </>
   );
 }
