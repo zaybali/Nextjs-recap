@@ -7,8 +7,8 @@ type todosType = {
 export default function TodoList({ todos, setTodos }: todosType) {
 
 
-  const editFunc = (index: number) => {
-    console.log(index)
+  const editFunc = (todo: string, editIndex: number) => {
+    console.log(todo);
   }
 
   const deleteFunc = (index: number) => {
@@ -25,7 +25,7 @@ export default function TodoList({ todos, setTodos }: todosType) {
         {
           todos.map((todo, index) => (
             <p key={crypto.randomUUID()}>{todo}
-              <button onClick={() => { editFunc(index) }}>Edit</button>
+              <button onClick={() => { editFunc(todo, index) }}>Edit</button>
               <button onClick={() => { deleteFunc(index) }}>Delete</button>
             </p>
           ))
