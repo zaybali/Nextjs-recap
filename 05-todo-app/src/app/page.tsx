@@ -1,29 +1,22 @@
 "use client"
 import TodoInput from "@/components/todo-input";
 import TodoList from "@/components/todo-list";
+import { useTodos } from "@/hooks/useTodos";
 import { useEffect, useState } from "react";
 
 export default function Home() {
 
-  const [todos, setTodos] = useState<string[]>([]);
-  const [isEditing, setIsEditing] = useState(false);
-  const [editIndex, setEditIndex] = useState<number | null>(null);
-  const [editTodo, setEditTodo] = useState('');
+  const {
+    todos,
+    addNewTodo,
+    updateTodo,
+    isEditing,
+    editTodo,
+    setEditTodo,
+    deleteTodo,
+    startEditing
+  } = useTodos();
 
-  const addNewTodo = (newTodo: string) => {
-    setTodos([...todos, newTodo]);
-  }
-
-  const updateTodo = (updateTodo: string) => {
-    if (editIndex !== null) {
-      const updatedTodos = [...todos];
-      updatedTodos[editIndex] = updateTodo;
-      setTodos(updatedTodos);
-      setIsEditing(false);
-      setEditIndex(null);
-      setEditTodo('');
-    }
-  }
   useEffect(() => {
     console.log(todos);
   }, [todos])
@@ -41,11 +34,9 @@ export default function Home() {
 
       <TodoList
         todos={todos}
-        setTodos={setTodos}
-        setIsEditing={setIsEditing}
-        setEditIndex={setEditIndex}
-        setEditTodo={setEditTodo}
-      />
+        deleteTodo={deleteTodo}
+        startEditing={startEditing}
+      />-
     </>
   );
 }
