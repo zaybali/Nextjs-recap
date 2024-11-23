@@ -1,14 +1,19 @@
 import React from 'react'
 type todosType = {
   todos: string[],
-  setTodos: (todo: string[]) => void
+  setTodos: (todo: string[]) => void,
+  setIsEditing: (status: boolean) => void,
+  setEditIndex: (num: number) => void,
+  setEditTodo: (todo: string) => void
 }
 
-export default function TodoList({ todos, setTodos }: todosType) {
+export default function TodoList({ todos, setTodos, setIsEditing, setEditIndex, setEditTodo }: todosType) {
 
 
   const editFunc = (todo: string, editIndex: number) => {
-    console.log(todo);
+    setIsEditing(true);
+    setEditIndex(editIndex);
+    setEditTodo(todo);
   }
 
   const deleteFunc = (index: number) => {
