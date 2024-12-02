@@ -36,7 +36,7 @@ export default function Home() {
         todos={todos}
         deleteTodo={deleteTodo}
         startEditing={startEditing}
-      />-
+      />
     </>
   );
 }

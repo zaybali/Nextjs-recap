@@ -22,8 +22,9 @@ export function useTodos() {
   }
 
   const deleteTodo = (index: number) => {
-    console.log(index)
-    setTodos([...todos].splice(index, 1));
+    const updatedTodos = [...todos];
+    updatedTodos.splice(index, 1);
+    setTodos(updatedTodos);
   }
 
   const startEditing = (index: number, todo: string) => {

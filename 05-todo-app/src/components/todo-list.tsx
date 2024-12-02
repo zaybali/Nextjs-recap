@@ -14,7 +14,7 @@ export default function TodoList({ todos, deleteTodo, startEditing }: todosType)
       <div>
         {
           todos.map((todo, index) => (
-            <p key={crypto.randomUUID()}>{todo}
+            <p key={index}>{todo}
               <button onClick={() => { startEditing(index, todo) }}>Edit</button>
               <button onClick={() => { deleteTodo(index) }}>Delete</button>
             </p>
