@@ -1,5 +1,4 @@
 "use client";
-import { todo } from 'node:test';
 import React, { useState } from 'react'
 
 type todoInputPropsType = {
@@ -26,10 +25,10 @@ export default function TodoInput({ addNewTodo, updateTodo, isEditing, editTodo,
         addNewTodo(newTodo);
         setNewTodo('');
       }
-      else {
-        if (editTodo.trim()) {
-          updateTodo(editTodo);
-        }
+    }
+    else {
+      if (editTodo.trim()) {
+        updateTodo(editTodo);
       }
     }
   }

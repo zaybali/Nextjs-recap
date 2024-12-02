@@ -31,6 +31,7 @@ export function useTodos() {
     setIsEditing(true);
     setEditIndex(index);
     setEditTodo(todo);
+    console.log(isEditing, editIndex, editTodo)
   }
 
   return {
