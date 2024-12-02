@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import "./globals.css";
+import { TodoProvider } from "./context/todocontext";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -13,7 +15,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        {children}
+        <TodoProvider>
+          {children}
+        </TodoProvider>
       </body>
     </html>
   );
