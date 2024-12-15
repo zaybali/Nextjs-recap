@@ -60,30 +60,66 @@ export default function Login({ changeAuthStatus, setUser }: loginType) {
 
   return (
     <>
-      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh', flexDirection: 'column' }}>
-        <h1>Login here</h1>
-        <input
-          type="text"
-          value={email}
-          onChange={(ev) => {
-            setEmail(ev.target.value);
-          }}
-          style={{ border: '1px solid black', padding: '4px' }}
-        />
-        <br />
-        <input
-          type="password"
-          value={password}
-          onChange={(ev) => {
-            setPassword(ev.target.value);
-          }}
-          style={{ border: '1px solid black', padding: '4px' }}
-        />
-        <br />
-        <input type="submit" value="Login" onClick={loginHandler}
+      {/* Main Container */}
+      <div className="min-h-screen flex flex-col justify-center items-center bg-gradient-to-r from-blue-50 to-blue-100">
+        {/* App Title */}
+        <h1 className="text-4xl font-bold text-primary mb-8">
+          Next.js Authentication App
+        </h1>
 
-          style={{ border: '1px solid black', padding: '4px' }}
-        />
+        {/* Login Form */}
+        <div className="bg-white rounded-lg shadow-md p-8 w-full max-w-md">
+          <h2 className="text-2xl font-semibold text-center mb-6">Login Here</h2>
+          <form className="space-y-4">
+            {/* Email Input */}
+            <div>
+              <label
+                htmlFor="email"
+                className="block text-sm font-medium text-muted-foreground"
+              >
+                Email
+              </label>
+              <input
+                type="text"
+                id="email"
+                value={email}
+                onChange={(ev) => setEmail(ev.target.value)}
+                className="w-full mt-1 px-4 py-2 border border-muted rounded-md focus:ring focus:ring-primary focus:outline-none"
+                placeholder="Enter your email"
+              />
+            </div>
+
+            {/* Password Input */}
+            <div>
+              <label
+                htmlFor="password"
+                className="block text-sm font-medium text-muted-foreground"
+              >
+                Password
+              </label>
+              <input
+                type="password"
+                id="password"
+                value={password}
+                onChange={(ev) => setPassword(ev.target.value)}
+                className="w-full mt-1 px-4 py-2 border border-muted rounded-md focus:ring focus:ring-primary focus:outline-none"
+                placeholder="Enter your password"
+              />
+            </div>
+
+            {/* Submit Button */}
+            <div className="text-center">
+              <button
+                type="submit"
+                onClick={loginHandler}
+                className="w-full py-2 bg-blue-600 text-white font-medium rounded-md hover:bg-blue-700 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+              >
+                Login
+              </button>
+
+            </div>
+          </form>
+        </div>
       </div>
     </>
   )
